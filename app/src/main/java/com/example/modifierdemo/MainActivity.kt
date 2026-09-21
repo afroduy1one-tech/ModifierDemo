@@ -49,6 +49,9 @@ fun DemoScreen(modifier: Modifier = Modifier) {
     val mymodifier = modifier
         .border(width = 2.dp, color = Color.Black)
         .padding(all = 10.dp)
+
+    val secondModifier = Modifier.height(100.dp)
+
     Column(
         Modifier.padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,12 +59,15 @@ fun DemoScreen(modifier: Modifier = Modifier) {
     ) {
         Text(
             "Hello Compose",
-            mymodifier,
+            modifier = mymodifier.then(secondModifier),
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold
         )
+
         Spacer(Modifier.height(16.dp))
-        CustomImage(R.drawable.lab2_image,
+
+        CustomImage(
+            R.drawable.lab2_image ,
             Modifier
                 .padding(16.dp)
                 .width(270.dp)
